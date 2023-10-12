@@ -10,9 +10,9 @@ void print_line(int n)
 {
 	int i;
 
-	for (i = n ; i <= n ; i++)
+	for (i = 0 ; i <= n ; i++)
 	{
-		if (i <= 0)
+		if (n <= 0)
 		{
 			break
 		}
