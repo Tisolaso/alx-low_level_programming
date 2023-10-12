@@ -1,9 +1,11 @@
 #include "main.h"
 
 /**
-* main - check the code.
+* _isupper - check the code.
 *
-* Return: Always 0.
+* @c: uifhirefie
+*
+* Return: if upper 1, 0 otherwise
 */
 
 int _isupper(int c)
