@@ -1,6 +1,6 @@
 #include "main.h"
 /**
-*_puts - check the code
+* _puts - check the code
 *
 * @str: pointer
 *
