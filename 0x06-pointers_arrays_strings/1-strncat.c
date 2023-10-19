@@ -1,7 +1,7 @@
 #include "main.h"
 #include <string.h>
 /**
-* *_strncat - check the code
+* _strncat - check the code
 * @dest:pointer
 * @src:pointer
 * @n:int
