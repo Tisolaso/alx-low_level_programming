@@ -1,11 +1,11 @@
 #include <stddef.h>
 /**
- * _strchr - check the code
- * @s: pointer
- * @c: char
- *
- * Return: char
- */
+* _strchr - check the code
+* @s: pointer
+* @c: char
+*
+* Return: char
+*/
 
 char *_strchr(char *s, char c)
 {
@@ -17,5 +17,5 @@ char *_strchr(char *s, char c)
 		}
 		s++;
 	}
-	return NULL;
+	return (NULL);
 }
