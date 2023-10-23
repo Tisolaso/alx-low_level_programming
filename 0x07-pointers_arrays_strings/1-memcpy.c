@@ -1,19 +1,21 @@
 /**
- * _memcpy - prints buffer in hexa
- * @dest: the address of memory to print
- * @src: the size of the memory to print
- * @n: int
- * Return: char
+ * _memcpy - copys n bytes of memory
  *
+ * @dest: pointer to dest str
+ * @src: source to be copied from
+ * @n: num bytes to copy from src
+ *
+ * Return: pointer to beginning of memory area dest
  */
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
-	int i;
+	unsigned int i = 0;
 	char *start = dest;
 
-	for (i = 0 ; i < n ; i++)
+	while (i < n)
 	{
-		dest[i] = src[i];
+		*dest++ = *src++;
+		i++;
 	}
 	return (start);
 }
