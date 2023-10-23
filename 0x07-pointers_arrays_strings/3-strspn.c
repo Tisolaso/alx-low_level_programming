@@ -1,7 +1,8 @@
 /**
- * main - check the code
- *
- * Return: Always 0.
+ * _strspn - check the code
+ * @s: zab
+ * @accept: zab
+ * Return: int
  */
 
 unsigned int _strspn(char *s, char *accept)
