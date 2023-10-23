@@ -1,3 +1,4 @@
+#include <stddef.h>
 /**
  * _strchr - check the code
  * @s: pointer
