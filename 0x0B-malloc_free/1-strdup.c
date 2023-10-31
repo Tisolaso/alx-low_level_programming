@@ -1,4 +1,4 @@
-#include "index.h"
+#include "main.h"
 /**
  * _strdup - Entry point
  *@str: string we need to duplicate
@@ -22,9 +22,10 @@ char *_strdup(char *str)
 }
 
 /**
- * len - oireg regjroe
- * @tp: iojrgoer
- * return: ioerjg
+ * len - Calculate the length of a string
+ * @tp: Pointer to a null-terminated string
+ *
+ * Return: The length of the string (excluding the null-terminator).
  */
 
 int len(char *tp)
