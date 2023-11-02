@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdlib.h>
+#include <stddef.h>
 /**
  * array_range - function that creates an array of chars,
  *  and initializes it with a specific char
