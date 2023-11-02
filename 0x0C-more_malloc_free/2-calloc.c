@@ -1,30 +1,26 @@
-#include "notrebloh.h"
-#include <stdio.h>
+#include "main.h"
+#include <stddef.h>
 #include <stdlib.h>
-
 /**
- * *_calloc - function to allocates memory
- * @nmemb: unsigned int type
- * @size: unsigned int type
- * Return: return pointer to array
+ * _calloc - function that creates an array of chars,
+ *  and initializes it with a specific char
+ * @nmemb: first bytes of the memory
+ * @size: first bytes of the memory
+ * Return: pointer to the resulting string dests
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	char *ptr;
-	unsigned int count;
+	char *s;
+	unsigned int i;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
-	ptr = malloc(nmemb * size);
-	if (ptr == NULL)
-	{
+	s = malloc(nmemb * size);
+	if (s == NULL)
 		return (NULL);
-	}
-	count = 0;
-	while (count < nmemb * size)
+	for (i = 0; i < nmemb * size; i++)
 	{
-		ptr[count] = 0;
-		count++;
+		s[i] = 0;
 	}
-	return (ptr);
+	return (s);
 }
