@@ -1,15 +1,15 @@
-#include "function_pointers.h"
+#include <stdio.h>
 
 /**
- * print_name - Print a name from a function pointer
- * @name: char string
- * @f: function pointer that takes a string argument
+ * print_name - entry point
+ * @name: size of triangle
+ * @f: size of triangle
+ * Description: --
+ * Return: --
  */
-
 void print_name(char *name, void (*f)(char *))
 {
-	if (f != NULL && name != NULL)
-	{
-		 f(name);
-	}
+	if (f == NULL)
+		return;
+	f(name);
 }
