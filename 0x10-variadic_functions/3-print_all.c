@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdarg.h>
+#include <stdlib.h>
 #include "variadic_functions.h"
-
 /**
  * print_strings - entry point
  * @format: size of triangle
