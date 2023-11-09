@@ -3,94 +3,88 @@
 #include "variadic_functions.h"
 
 /**
- * printf_char - printfs a char from var args
- *
- * @list: va_list to print from
- *
- * Return: void
+ * print_strings - entry point
+ * @format: size of triangle
+ * Description: --
+ * Return: --
  */
-void printf_char(va_list list)
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	printf("%c", (char) va_arg(list, int));
-}
+	char *s;
+	unsigned int i;
 
-/**
- * printf_int - printfs an int from var args
- *
- * @list: va_list to print from
- *
- * Return: void
- */
-void printf_int(va_list list)
-{
-	printf("%d", va_arg(list, int));
-}
-
-/**
- * printf_float - printfs a float from var args
- *
- * @list: va_list to print from
- *
- * Return: void
- */
-void printf_float(va_list list)
-{
-	printf("%f", (float) va_arg(list, double));
-}
-
-/**
- * printf_string - printfs a string from var args
- *
- * @list: va_list to print from
- *
- * Return: void
- */
-void printf_string(va_list list)
-{
-	char *str = va_arg(list, char*);
-
-	while (str != NULL)
+	if (new_size == old_size)
 	{
-		printf("%s", str);
-		return;
+		return (ptr);
 	}
-	printf("(nil)");
+	if (ptr == NULL)
+	{
+		ptr = malloc(new_size);
+		return (ptr);
+	}
+	if (new_size == 0)
+	{
+		free(ptr);
+		return (NULL);
+	}
+	s = malloc(new_size);
+	if (s == NULL)
+		return (NULL);
+	for (i = 0; i < old_size && new_size > old_size; i++)
+		s[i] = *((char *)ptr + i);
+	for (i = 0; i < new_size && new_size < old_size; i++)
+		s[i] = *((char *)ptr + i);
+	free(ptr);
+	return (s);
+}
+void print_char(void a)
+{
+	printf("%c", a);
+}
+void print_int(void a)
+{
+	printf("%d", a);
+}
+void print_float(void a)
+{
+	printf("%f", a);
+}
+void print_string(void *a)
+{
+	printf("%s", a);
 }
 
-
-/**
- * print_all - prints various types given a format string for the arguments
- *
- * @format: string containing type information for args
- *
- * Return: void
- */
-void print_all(const char * const format, ...)
+void print_all(const char *const format, ...)
 {
-	const char *ptr;
-	va_list list;
-	funckey key[4] = { {printf_char, 'c'}, {printf_int, 'i'},
-			   {printf_float, 'f'}, {printf_string, 's'} };
-	int keyind = 0, notfirst = 0;
+	int n = 0, i = 0;
+	char *frm = NULL;
+	va_list args;
+	int (*print_type[4])(void) = {print_char, print_int, print_float, print_string};
 
-	ptr = format;
-	va_start(list, format);
-	while (format != NULL && *ptr)
+	while (format[i])
 	{
-		if (key[keyind].spec == *ptr)
+		if (format[i] == 'c' || format[i] == 'i' || format[i] == 'f' || format[i] == 's')
 		{
-			if (notfirst)
-				printf(", ");
-			notfirst = 1;
-			key[keyind].f(list);
-			ptr++;
-			keyind = -1;
+			n++;
+			frm = _realloc(frm, n, n + 1);
+			if (!frm)
+			{
+				return;
+			}
+			frm[n - 1] = format[i];
 		}
-		keyind++;
-		ptr += keyind / 4;
-		keyind %= 4;
+		i++;
 	}
-	printf("\n");
-
-	va_end(list);
+	va_start(args, n);
+	frm[n] = '\0';
+	i = 0;
+	while (frm[i])
+	{
+		print_type[i];
+		if (i != i - 1)
+			printf(", ");
+		i++;
+	}
+	printf("%d\n", n);
+	printf("%s\n", frm);
 }
