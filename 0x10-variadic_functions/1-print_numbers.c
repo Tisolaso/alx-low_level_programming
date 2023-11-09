@@ -2,30 +2,29 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * print_numbers - check the code
- * @separator: ergr
- * @n: erugh
- * Return: nothing
+ * print_numbers - prints integer arguments with a separator
+ *
+ * @separator: - thing to print between numbers
+ * @n: - number of arguments
+ *
+ * Return: void
  */
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
+	char *sep;
 	unsigned int i;
-	va_list ptr;
+	va_list list;
 
-	i = 0;
-	va_start(ptr, n);
-	if (separator != NULL)
-	{
-		while (i < n)
-		{
-			printf("%d", va_arg(ptr, int));
-			i++;
-			if (i < n)
-			{
-				printf("%c%c", *separator, *(separator + 1));
-			}
-		}
-	}
-	va_end(ptr);
+	if (separator == NULL || *separator == 0)
+		sep = "";
+	else
+		sep = (char *) separator;
+	va_start(list, n);
+
+	if (n > 0)
+		printf("%d", va_arg(list, int));
+	for (i = 1; i < n; i++)
+		printf("%s%d", sep, va_arg(list, int));
 	printf("\n");
+	va_end(list);
 }
