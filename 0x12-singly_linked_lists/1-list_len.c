@@ -1,8 +1,8 @@
 #include "lists.h"
 /**
- * main - check the code
- *
- * Return: Always 0.
+ * list_len - check the code
+ * @h: header
+ * Return: len
  */
 size_t list_len(const list_t *h)
 {
