@@ -8,13 +8,13 @@
 size_t print_list(const list_t *h)
 {
 	unsigned int i = 0;
-	list_t *current = h;
+	const list_t *current = h;
 
 	while (current != NULL)
 	{
 		printf("[%d] %s\n", current->len, current->str);
 		i++;
-		current = current->next
+		current = current->next;
 	}
 	return (i);
 }
