@@ -1,5 +1,4 @@
 #include "lists.h"
-#include <stdlib.h>
 /**
  * print_list - check the code
  * @h: header node
@@ -14,7 +13,7 @@ size_t print_list(const list_t *h)
 	{
 		if (current->str == NULL)
 		{
-			print("[0] (nil)");
+			printf("[0] (nil)\n");
 		}
 		else
 		{
