@@ -5,8 +5,5 @@
  */
 void free_listint2(listint_t **head)
 {
-	if (*head != NULL)
-	{
-		*head = NULL;
-	}
+	*head = NULL;
 }
