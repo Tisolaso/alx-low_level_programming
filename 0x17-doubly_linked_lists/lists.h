@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdio.h>
 /**
- * struct dlistint_s
+ * struct dlistint_s - doubly linked
  * @n: integer
  * @prev: points to the previous node
  * @next: points to the next node

@@ -1,8 +1,8 @@
 #include "lists.h"
 
 /**
- * delete_dnodeint_at_index
- * @head: head 
+ * delete_dnodeint_at_index - delete
+ * @head: head
  * @index: index where to insert
  * Return: 1 if it succeeded, -1 if it failed
  */
